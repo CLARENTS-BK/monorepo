@@ -1,0 +1,10 @@
+@use '../../styles/project1';
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: project1.$space-xl;
+  background-color: transparent;
+  gap: project1.$space-m;
+}

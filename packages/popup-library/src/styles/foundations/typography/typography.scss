@@ -1,0 +1,189 @@
+@import '../fonts/fonts';
+
+%cry-typography-display-l {
+  font-family: Lexend, sans-serif;
+  font-size: 2.5625rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 3.0625rem;
+}
+
+%cry-typography-display-bold-l {
+  @extend %cry-typography-display-l;
+
+  font-weight: 700;
+}
+
+%cry-typography-display-m {
+  font-family: Lexend, sans-serif;
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.75rem;
+}
+
+%cry-typography-display-bold-m {
+  @extend %cry-typography-display-m;
+
+  font-weight: 700;
+}
+
+%cry-typography-display-s {
+  font-family: Lexend, sans-serif;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.5rem;
+}
+
+%cry-typography-display-bold-s {
+  @extend %cry-typography-display-s;
+
+  font-weight: 700;
+}
+
+%cry-typography-heading-l {
+  font-family: Lexend, sans-serif;
+  font-size: 1.625rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.125rem;
+}
+
+%cry-typography-heading-bold-l {
+  @extend %cry-typography-heading-l;
+
+  font-weight: 700;
+}
+
+%cry-typography-heading-m {
+  font-family: Lexend, sans-serif;
+  font-size: 1.4375rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.9375rem;
+}
+
+%cry-typography-heading-bold-m {
+  @extend %cry-typography-heading-m;
+
+  font-weight: 700;
+}
+
+%cry-typography-heading-s {
+  font-family: Lexend, sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.75rem;
+}
+
+%cry-typography-heading-bold-s {
+  @extend %cry-typography-heading-s;
+
+  font-weight: 700;
+}
+
+%cry-typography-body-l {
+  font-family: Inter, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem;
+}
+
+%cry-typography-body-bold-l {
+  @extend %cry-typography-body-l;
+
+  font-weight: 600;
+}
+
+%cry-typography-body-m {
+  font-family: Inter, sans-serif;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.375rem;
+}
+
+%cry-typography-body-bold-m {
+  @extend %cry-typography-body-m;
+
+  font-weight: 600;
+}
+
+%cry-typography-body-s {
+  font-family: Inter, sans-serif;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25rem;
+}
+
+%cry-typography-body-xs {
+  font-family: Inter, sans-serif;
+  font-size: 0.625rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 0.875rem;
+}
+
+%cry-typography-strikethrough-l {
+  font-family: Inter, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem;
+  text-decoration-line: line-through;
+}
+
+%cry-typography-strikethrough-m {
+  font-family: Inter, sans-serif;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.375rem;
+  text-decoration-line: line-through;
+}
+
+%cry-typography-strikethrough-s {
+  font-family: Inter, sans-serif;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25rem;
+  text-decoration-line: line-through;
+}
+
+%cry-typography-strikethrough-xs {
+  font-family: Inter, sans-serif;
+  font-size: 0.625rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 0.875rem;
+  text-decoration-line: line-through;
+}
+
+%cry-typography-strikethrough-bold-l {
+  @extend %cry-typography-strikethrough-xs;
+
+  font-weight: 600;
+}
+
+%cry-typography-strikethrough-bold-m {
+  @extend %cry-typography-strikethrough-m;
+
+  font-weight: 600;
+}
+
+%cry-typography-strikethrough-bold-s {
+  @extend %cry-typography-strikethrough-s;
+
+  font-weight: 600;
+}
+
+%cry-typography-strikethrough-bold-xs {
+  @extend %cry-typography-strikethrough-xs;
+
+  font-weight: 600;
+}

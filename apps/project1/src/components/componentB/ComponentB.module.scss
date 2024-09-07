@@ -1,0 +1,67 @@
+@use '../../styles/project1';
+
+.container {
+  padding: project1.$space-l;
+  display: flex;
+  text-align: left;
+  justify-content: center;
+  background-color: project1.$neutral-white;
+  border-radius: project1.$radius-m;
+  margin: 0 auto;
+}
+
+.title {
+  @extend %cry-typography-heading-bold-m;
+
+  padding: project1.$space-l;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.field {
+  margin-bottom: project1.$space-m;
+}
+
+.label {
+  @extend %cry-typography-body-l;
+}
+
+.submitButton {
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  padding: project1.$space-xs;
+  border: 0.063rem solid project1.$gray-500;
+  border-radius: project1.$space-xs;
+  font-size: project1.$space-m;
+}
+
+.input:focus {
+  border-color: project1.$primary-400;
+  outline: none;
+  box-shadow: project1.$elevation-3;
+}
+
+.errorInput {
+  border-color: project1.$error-500;
+}
+
+.errorMessage {
+  @extend %cry-typography-body-s;
+
+  color: project1.$error-500;
+  margin-top: project1.$space-xxxs;
+}
+
+.successMessage {
+  @extend %cry-typography-body-l;
+
+  padding: project1.$space-m;
+  border-radius: project1.$radius-m;
+  color: project1.$success-500;
+}

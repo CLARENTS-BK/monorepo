@@ -1,0 +1,55 @@
+{
+  "name": "monorepo",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/project1",
+    "packages/popup-library"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=apps/project1",
+    "build": "npm run build --workspaces",
+    "test": "npm test --workspaces",
+    "lint": "npm run lint:styles && lint:prettier:scss",
+    "lint:prettier:scss": "prettier --check \"apps/**/src/**/*.scss\" \"packages/**/src/**/*.scss\"",
+    "lint:styles": "stylelint '**/*.{css,scss}'",
+    "lint:styles:fix": "stylelint '**/*.{css,scss}' --fix",
+    "format": "prettier --write \"apps/**/src/**/*.{ts,tsx,css,scss}\" \"packages/**/src/**/*.{ts,tsx,css,scss}\" --config ./.prettierrc.json"
+  },
+  "devDependencies": {
+    "@babel/core": "7.24.7",
+    "@babel/plugin-proposal-private-property-in-object": "7.21.11",
+    "@babel/plugin-transform-runtime": "7.24.0",
+    "@babel/preset-env": "7.24.7",
+    "@babel/preset-typescript": "7.24.7",
+    "@commitlint/cli": "19.4.1",
+    "@commitlint/config-conventional": "19.4.1",
+    "@eslint/js": "^9.10.0",
+    "@testing-library/react": "16.0.1",
+    "@testing-library/user-event": "14.5.2",
+    "babel-plugin-import": "1.13.8",
+    "clsx": "2.1.1",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-prettier": "5.2.1",
+    "eslint-plugin-react": "^7.35.2",
+    "globals": "^15.9.0",
+    "husky": "8.0.3",
+    "identity-obj-proxy": "3.0.0",
+    "lint-staged": "^15.2.10",
+    "prettier": "3.3.3",
+    "sass": "^1.32.0",
+    "stylelint": "16.9.0",
+    "stylelint-config-css-modules": "4.4.0",
+    "stylelint-config-standard": "36.0.1",
+    "stylelint-config-standard-scss": "13.1.0",
+    "stylelint-scss": "6.5.1",
+    "ts-node": "10.9.2",
+    "typescript": "^5.0.0",
+    "typescript-eslint": "^8.4.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

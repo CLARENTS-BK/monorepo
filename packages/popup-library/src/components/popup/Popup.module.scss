@@ -1,0 +1,31 @@
+@use '../../styles/popup-styles';
+
+.popup {
+  position: absolute;
+  background: popup-styles.$neutral-white;
+  border-radius: popup-styles.$radius-m;
+  box-shadow: popup-styles.$elevation-2;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: popup-styles.$space-xs;
+  background: popup-styles.$primary-500;
+  color: popup-styles.$neutral-white;
+}
+
+.title {
+  @extend %cry-typography-heading-bold-s;
+}
+
+.headerButton {
+  color: popup-styles.$neutral-white;
+}
+
+.content {
+  padding: popup-styles.$space-m;
+}

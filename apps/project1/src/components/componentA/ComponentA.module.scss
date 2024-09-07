@@ -1,0 +1,31 @@
+@use '../../styles/project1';
+
+.carousel {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.newsItem {
+  margin-bottom: project1.$space-l;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  @extend %cry-typography-heading-bold-l;
+}
+
+.name {
+  @extend %cry-typography-body-bold-l;
+}
+
+.prevButton {
+  margin-right: auto;
+}
+
+.nextButton {
+  margin-left: auto;
+}
