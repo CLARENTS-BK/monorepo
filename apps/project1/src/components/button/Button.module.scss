@@ -1,0 +1,206 @@
+@use '../../styles/project1';
+
+.rootL {
+  @extend %cry-typography-body-bold-l;
+
+  display: inline-flex;
+  padding: project1.$space-xs;
+  justify-content: center;
+  align-items: center;
+  gap: project1.$space-xs;
+  border: transparent;
+  border-radius: project1.$radius-m;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.rootM {
+  @extend %cry-typography-body-bold-m;
+
+  display: inline-flex;
+  padding: project1.$space-xxs;
+  justify-content: center;
+  align-items: center;
+  gap: project1.$space-xxs;
+  border: transparent;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.rootS {
+  @extend %cry-typography-body-s;
+
+  display: inline-flex;
+  padding: project1.$space-xxxs project1.$space-xs;
+  justify-content: center;
+  align-items: center;
+  gap: project1.$space-xxs;
+  border: transparent;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1.241rem;
+  cursor: pointer;
+}
+
+.rootXS {
+  @extend %cry-typography-body-s;
+
+  display: inline-flex;
+  padding: project1.$space-xxs;
+  justify-content: center;
+  align-items: center;
+  gap: project1.$space-xxs;
+  border: transparent;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  line-height: 0.75;
+  cursor: pointer;
+}
+
+.primary {
+  background-color: project1.$primary-500;
+  color: project1.$neutral-white;
+
+  &:hover {
+    background-color: project1.$primary-50;
+    box-shadow: project1.$elevation-2;
+    color: project1.$primary-500;
+  }
+
+  &:active {
+    background-color: project1.$primary-700;
+    color: project1.$neutral-white;
+  }
+
+  &:disabled {
+    pointer-events: none;
+    background-color: project1.$gray-200;
+    border: 0.063rem solid project1.$gray-300;
+    color: project1.$gray-500;
+  }
+}
+
+.secondary {
+  border: 0.063rem solid project1.$primary-500;
+  background-color: project1.$neutral-transparent;
+  color: project1.$primary-500;
+
+  &:hover {
+    border-color: project1.$primary-100;
+    box-shadow: project1.$elevation-2;
+  }
+
+  &:active {
+    background-color: project1.$info-50;
+  }
+
+  &:disabled {
+    pointer-events: none;
+    border-color: project1.$gray-300;
+    background-color: project1.$neutral-white;
+    color: project1.$gray-500;
+  }
+}
+
+.primaryNegative {
+  background: project1.$error-500;
+  color: project1.$neutral-white;
+
+  &:hover {
+    background-color: project1.$error-300;
+    box-shadow: project1.$elevation-2;
+    color: project1.$neutral-white;
+  }
+
+  &:active {
+    background-color: project1.$error-700;
+    color: project1.$neutral-white;
+  }
+
+  &:disabled {
+    pointer-events: none;
+    background-color: project1.$gray-200;
+    color: project1.$gray-500;
+  }
+}
+
+.secondaryNegative {
+  border: 0.063rem solid project1.$error-500;
+  background-color: project1.$neutral-transparent;
+  color: project1.$error-500;
+
+  &:hover {
+    border: 0.063rem solid project1.$error-100;
+    box-shadow: project1.$elevation-2;
+    color: project1.$error-500;
+  }
+
+  &:active {
+    border: 0.063rem solid project1.$error-100;
+    background: project1.$error-50;
+    color: project1.$error-500;
+  }
+
+  &:disabled {
+    pointer-events: none;
+    border-color: project1.$gray-300;
+    background-color: project1.$neutral-white;
+    color: project1.$gray-500;
+  }
+}
+
+.text {
+  background-color: project1.$neutral-transparent;
+  color: project1.$primary-500;
+
+  &:hover {
+    background-color: project1.$info-50;
+    box-shadow: project1.$elevation-2;
+  }
+
+  &:active {
+    background-color: project1.$info-100;
+  }
+
+  &:disabled {
+    pointer-events: none;
+    background-color: project1.$neutral-white;
+    color: project1.$gray-500;
+  }
+}
+
+.link {
+  background-color: project1.$neutral-transparent;
+  color: project1.$primary-500;
+  text-decoration-line: underline;
+
+  &:hover {
+    color: project1.$primary-400;
+  }
+
+  &:active {
+    color: project1.$primary-700;
+  }
+
+  &:disabled {
+    pointer-events: none;
+    color: project1.$gray-500;
+  }
+}
+
+.iconS,
+.iconM {
+  display: flex;
+  align-items: center;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.iconL {
+  display: flex;
+  align-items: center;
+  width: project1.$space-l;
+  height: project1.$space-l;
+}

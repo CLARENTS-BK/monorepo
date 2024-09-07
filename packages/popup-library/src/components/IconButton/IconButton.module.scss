@@ -1,0 +1,49 @@
+@use '../../styles/popup-styles';
+
+.root {
+  color: popup-styles.$primary-500;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+
+  &:disabled {
+    pointer-events: none;
+    color: popup-styles.$gray-500;
+    background-color: transparent;
+  }
+
+  &:hover {
+    color: popup-styles.$primary-500;
+    background-color: popup-styles.$info-50;
+  }
+
+  &:active {
+    color: popup-styles.$neutral-white;
+    background-color: popup-styles.$primary-500;
+  }
+}
+
+.rootXS {
+  border-radius: popup-styles.$radius-xs;
+  padding: popup-styles.$space-xxxs;
+}
+
+.rootS {
+  border-radius: popup-styles.$radius-s;
+  padding: popup-styles.$space-xxxs;
+}
+
+.rootM {
+  border-radius: popup-styles.$radius-m;
+  padding: popup-styles.$space-xxxs;
+}
+
+.rootL {
+  border-radius: popup-styles.$radius-l;
+  padding: popup-styles.$space-xxxs;
+}
+
+.rootXL {
+  border-radius: popup-styles.$radius-l;
+  padding: popup-styles.$space-xxxs;
+}
