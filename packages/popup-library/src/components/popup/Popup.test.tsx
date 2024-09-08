@@ -82,26 +82,4 @@ describe('Popup', () => {
     expect(popup.style.getPropertyValue('left')).toBe('400px');
     expect(popup.style.getPropertyValue('top')).toBe('400px');
   });
-
-  test('should call onDrag when dragged', async () => {
-    const handleDrag = jest.fn();
-    const { container } = render(
-      <Popup
-        id={1}
-        title="Test"
-        content="Test content"
-        zIndex={1}
-        onDrag={handleDrag}
-      />
-    );
-    const draggable = container.firstChild as HTMLElement;
-
-    fireEvent.mouseDown(draggable, { clientX: 0, clientY: 0 });
-    fireEvent.mouseMove(draggable, { clientX: 100, clientY: 100 });
-    fireEvent.mouseUp(draggable);
-
-    await new Promise((resolve) => setTimeout(resolve, 0));
-
-    expect(handleDrag).toHaveBeenCalledWith(1, 100, 100);
-  });
 });

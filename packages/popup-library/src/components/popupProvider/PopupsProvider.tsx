@@ -27,17 +27,16 @@ const usePopupStore = create<PopupStore>((set) => ({
     set((state) => ({
       popups: state.popups.map((popup) =>
         popup.id === id
-          ? {
-              ...popup,
-              defaultPosition: { ...popup.defaultPosition, left, top },
-            }
+          ? { ...popup, defaultPosition: { ...popup.defaultPosition, left, top } }
           : popup
       ),
     })),
   bringToFront: (id) =>
     set((state) => ({
       popups: state.popups.map((popup) =>
-        popup.id === id ? { ...popup, zIndex: Math.max(...state.popups.map((p) => p.zIndex ?? 0)) + 1 } : popup
+        popup.id === id
+          ? { ...popup, zIndex: Math.max(...state.popups.map((p) => p.zIndex ?? 0)) + 1 }
+          : popup
       ),
     })),
 }));
@@ -55,21 +54,8 @@ const PopupsProvider: FC<{ children: ReactNode }> = ({ children }) => {
         if (popup) {
           const { offsetWidth: popupWidth, offsetHeight: popupHeight } = popup;
 
-          let newLeft = left;
-          let newTop = top;
-
-          if (left < 0) {
-            newLeft = 0;
-          }
-          if (top < 0) {
-            newTop = 0;
-          }
-          if (left + popupWidth > containerWidth) {
-            newLeft = containerWidth - popupWidth;
-          }
-          if (top + popupHeight > containerHeight) {
-            newTop = containerHeight - popupHeight;
-          }
+          let newLeft = Math.max(0, Math.min(left, containerWidth - popupWidth));
+          let newTop = Math.max(0, Math.min(top, containerHeight - popupHeight));
 
           movePopup(id, newLeft, newTop);
         }
@@ -79,39 +65,13 @@ const PopupsProvider: FC<{ children: ReactNode }> = ({ children }) => {
   );
 
   const handleResize = useCallback(() => {
-    const container = containerRef.current;
-    if (container) {
-      const { offsetWidth: containerWidth, offsetHeight: containerHeight } = container;
-
+    if (containerRef.current) {
       popups.forEach((popup) => {
-        const popupElement = document.querySelector(`[data-id='${popup.id}']`) as HTMLElement;
-        if (popupElement) {
-          const { offsetWidth: popupWidth, offsetHeight: popupHeight } = popupElement;
-          const { left = 0, top = 0 } = popup.defaultPosition || {};
-
-          let newLeft = left;
-          let newTop = top;
-
-          if (left < 0) {
-            newLeft = 0;
-          }
-          if (top < 0) {
-            newTop = 0;
-          }
-          if (left + popupWidth > containerWidth) {
-            newLeft = containerWidth - popupWidth;
-          }
-          if (top + popupHeight > containerHeight) {
-            newTop = containerHeight - popupHeight;
-          }
-
-          if (newLeft !== left || newTop !== top) {
-            movePopup(popup.id, newLeft, newTop);
-          }
-        }
+        const { left = 0, top = 0 } = popup.defaultPosition || {};
+        handleDrag(popup.id, left, top);
       });
     }
-  }, [popups, movePopup]);
+  }, [popups, handleDrag]);
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);
@@ -121,10 +81,7 @@ const PopupsProvider: FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <>
       {children}
-      <div
-        ref={containerRef}
-        className={styles.popupContainer}
-      >
+      <div ref={containerRef} className={styles.popupContainer}>
         {popups.map((popup) => (
           <Popup
             key={popup.id}
@@ -144,5 +101,4 @@ const PopupsProvider: FC<{ children: ReactNode }> = ({ children }) => {
 };
 
 export default PopupsProvider;
-
 export { PopupStore, usePopupStore };

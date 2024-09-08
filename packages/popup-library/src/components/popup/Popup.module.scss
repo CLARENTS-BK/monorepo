@@ -6,7 +6,6 @@
   border-radius: popup-styles.$radius-m;
   box-shadow: popup-styles.$elevation-2;
   overflow: hidden;
-  cursor: grab;
 }
 
 .header {
@@ -16,6 +15,7 @@
   padding: popup-styles.$space-xs;
   background: popup-styles.$primary-500;
   color: popup-styles.$neutral-white;
+  cursor: grab;
 }
 
 .title {

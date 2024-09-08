@@ -1,50 +1,45 @@
-# React + TypeScript + Vite
+# Packages-Popup-Library
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Esta es una biblioteca de componentes de pop-up para React, construida con Vite y TypeScript.
 
-Currently, two official plugins are available:
+## Scripts
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Aquí están los scripts disponibles que puedes ejecutar:
 
-## Expanding the ESLint configuration
+- `npm run dev`: Inicia el servidor de desarrollo.
+- `npm run build`: Construye la aplicación para producción.
+- `npm run lint`: Ejecuta ESLint en el proyecto.
+- `npm run preview`: Sirve la construcción de producción para previsualización.
+- `npm test`: Ejecuta las pruebas de Jest.
+- `npm run test:watch`: Ejecuta las pruebas de Jest en modo watch.
+- `npm run test:watchAll`: Ejecuta todas las pruebas de Jest en modo watch.
+- `npm run test:coverage`: Ejecuta las pruebas de Jest y genera un informe de cobertura.
+- `npm run test:watchAll:coverage`: Ejecuta todas las pruebas de Jest en modo watch y genera un informe de cobertura.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Dependencias
 
-- Configure the top-level `parserOptions` property like this:
+Este proyecto utiliza varias dependencias, incluyendo:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- `react` y `react-dom` para construir la interfaz de usuario.
+- `react-draggable` para hacer los componentes arrastrables.
+- `zustand` para el manejo del estado.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Dependencias de desarrollo
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Este proyecto utiliza varias dependencias de desarrollo, incluyendo:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- `@eslint/js` para la configuración de ESLint.
+- `@testing-library/jest-dom` para las utilidades de pruebas de Jest DOM.
+- `@types/jest`, `@types/react`, y `@types/react-dom` para las definiciones de tipos de TypeScript.
+- `@vitejs/plugin-react` para el plugin de React de Vite.
+- `babel-jest` para usar Babel con Jest.
+- `eslint` para linting.
+- `eslint-plugin-react-hooks` y `eslint-plugin-react-refresh` para los plugins de React de ESLint.
+- `globals` para declarar variables globales.
+- `jest` para pruebas.
+- `jest-environment-jsdom` para el entorno JSDOM de Jest.
+- `ts-jest` para usar TypeScript con Jest.
+- `ts-node` para ejecutar código TypeScript.
+- `typescript` para el soporte del lenguaje TypeScript.
+- `typescript-eslint` para usar TypeScript con ESLint.
+- `vite` para construir y servir la aplicación.

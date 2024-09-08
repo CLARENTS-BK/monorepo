@@ -1,5 +1,5 @@
-import { FC, ReactNode, useEffect, useRef, useState } from 'react';
-import Draggable from 'react-draggable';
+import { FC, ReactNode, useState, useRef, useEffect } from 'react';
+import Draggable, { DraggableData, DraggableEvent } from 'react-draggable';
 import IconButton from '../IconButton/IconButton';
 import styles from './Popup.module.scss';
 
@@ -29,11 +29,7 @@ const Popup: FC<PopupProps> = ({
   onDrag,
   onClick,
 }) => {
-  const [position, setPosition] = useState({
-    x: defaultPosition.left,
-    y: defaultPosition.top,
-  });
-
+  const [position, setPosition] = useState({ x: defaultPosition.left, y: defaultPosition.top });
   const popupRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -60,42 +56,61 @@ const Popup: FC<PopupProps> = ({
     return () => window.removeEventListener('resize', handleResize);
   }, [position]);
 
+  const handleDrag = (e: DraggableEvent, data: DraggableData) => {
+    setPosition({ x: data.x, y: data.y });
+    onDrag?.(id, data.x, data.y);
+  };
+
+  const handleIconButtonEvents = (e: React.MouseEvent | React.TouchEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+    onClose?.(id);
+  };
+
   return (
     <Draggable
       position={position}
-      onDrag={(e, data) => {
-        setPosition({ x: data.x, y: data.y });
-        if (onDrag) {
-          onDrag(id, data.x, data.y);
-        }
-      }}
+      onDrag={handleDrag}
+      handle={`.${styles.header}`}
     >
       <div
         ref={popupRef}
         className={styles.popup}
-        style={{
-          width: defaultPosition.width,
-          height: defaultPosition.height,
-          zIndex,
-        }}
-        onClick={() => onClick && onClick(id)}
+        style={{ width: defaultPosition.width, height: defaultPosition.height, zIndex }}
+        onClick={() => onClick?.(id)}
+        onTouchEnd={() => onClick?.(id)}
+        data-id={id}
       >
-        <div className={styles.header}>
+        <div
+          className={styles.header}
+          onClick={() => onClick?.(id)}
+          onTouchEnd={() => onClick?.(id)}
+        >
           <span className={styles.title}>{title}</span>
-          <IconButton
-            className={styles.headerButton}
-            onClick={() => onClose && onClose(id)}
-            iconVariant="closeUnframed"
-            size="M"
-            data-testid="close-button"
-          />
+          <div className={styles.headerButtons}>
+            <IconButton
+              className={styles.headerButton}
+              onClick={handleIconButtonEvents}
+              onMouseDown={handleIconButtonEvents}
+              onTouchStart={handleIconButtonEvents}
+              onTouchEnd={handleIconButtonEvents}
+              iconVariant="closeUnframed"
+              size="M"
+              data-testid="close-button"
+            />
+          </div>
         </div>
-        <div className={styles.content}>{content}</div>
+        <div
+          className={styles.content}
+          onClick={() => onClick?.(id)}
+          onTouchEnd={() => onClick?.(id)}
+        >
+          {content}
+        </div>
       </div>
     </Draggable>
   );
 };
 
 export { PopupProps };
-
 export default Popup;

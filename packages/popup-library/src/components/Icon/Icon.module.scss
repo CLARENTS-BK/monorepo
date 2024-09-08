@@ -1,3 +1,5 @@
+@use '../../styles/popup-styles';
+
 .root {
   display: flex;
 
@@ -8,26 +10,26 @@
 }
 
 .sizeXS {
-  width: 1rem;
-  height: 1rem;
+  width: popup-styles.$space-s;
+  height: popup-styles.$space-s;
 }
 
 .sizeS {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: popup-styles.$space-m;
+  height: popup-styles.$space-m;
 }
 
 .sizeM {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: popup-styles.$space-l;
+  height: popup-styles.$space-l;
 }
 
 .sizeL {
-  width: 2rem;
-  height: 2rem;
+  width: popup-styles.$space-xl;
+  height: popup-styles.$space-xl;
 }
 
 .sizeXL {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: popup-styles.$space-m;
+  height: popup-styles.$space-m;
 }
