@@ -1,4 +1,3 @@
-import React from 'react';
 import '@testing-library/jest-dom';
 
 import { render, screen } from '@testing-library/react';
@@ -10,7 +9,7 @@ test('renders correctly', () => {
     <Button
       label="Test Button"
       variant="primary"
-      size='M'
+      size="M"
     />
   );
   const buttonElement = screen.getByTestId('button');
@@ -58,4 +57,3 @@ test('displays start and end icons', () => {
   expect(startIconElement).toBeInTheDocument();
   expect(endIconElement).toBeInTheDocument();
 });
-

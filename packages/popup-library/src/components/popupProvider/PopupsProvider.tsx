@@ -58,10 +58,18 @@ const PopupsProvider: FC<{ children: ReactNode }> = ({ children }) => {
           let newLeft = left;
           let newTop = top;
 
-          if (left < 0) newLeft = 0;
-          if (top < 0) newTop = 0;
-          if (left + popupWidth > containerWidth) newLeft = containerWidth - popupWidth;
-          if (top + popupHeight > containerHeight) newTop = containerHeight - popupHeight;
+          if (left < 0) {
+            newLeft = 0;
+          }
+          if (top < 0) {
+            newTop = 0;
+          }
+          if (left + popupWidth > containerWidth) {
+            newLeft = containerWidth - popupWidth;
+          }
+          if (top + popupHeight > containerHeight) {
+            newTop = containerHeight - popupHeight;
+          }
 
           movePopup(id, newLeft, newTop);
         }
@@ -84,10 +92,18 @@ const PopupsProvider: FC<{ children: ReactNode }> = ({ children }) => {
           let newLeft = left;
           let newTop = top;
 
-          if (left < 0) newLeft = 0;
-          if (top < 0) newTop = 0;
-          if (left + popupWidth > containerWidth) newLeft = containerWidth - popupWidth;
-          if (top + popupHeight > containerHeight) newTop = containerHeight - popupHeight;
+          if (left < 0) {
+            newLeft = 0;
+          }
+          if (top < 0) {
+            newTop = 0;
+          }
+          if (left + popupWidth > containerWidth) {
+            newLeft = containerWidth - popupWidth;
+          }
+          if (top + popupHeight > containerHeight) {
+            newTop = containerHeight - popupHeight;
+          }
 
           if (newLeft !== left || newTop !== top) {
             movePopup(popup.id, newLeft, newTop);
@@ -126,7 +142,6 @@ const PopupsProvider: FC<{ children: ReactNode }> = ({ children }) => {
     </>
   );
 };
-
 
 export default PopupsProvider;
 

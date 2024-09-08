@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import styles from './ComponentA.module.scss';
-import Button from '../button/Button';
+import { FC, useEffect, useState } from 'react';
 import Icon from '../Icon/Icon';
+import Button from '../button/Button';
+import styles from './ComponentA.module.scss';
 
 interface Pokemon {
   name: string;
@@ -12,7 +12,7 @@ interface Pokemon {
   abilities: { ability: { name: string } }[];
 }
 
-const ComponentA: React.FC = () => {
+const ComponentA: FC = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [error, setError] = useState<string | null>(null);
@@ -29,7 +29,7 @@ const ComponentA: React.FC = () => {
       );
       setPokemons(pokemonDetails.map((res) => res.data));
       setError(null);
-    } catch (error) {
+    } catch (err) {
       setError('Error fetching Pokemons. Please try again later.');
     }
   };

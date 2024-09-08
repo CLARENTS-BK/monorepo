@@ -1,8 +1,8 @@
-import { FC, FormEvent, useState } from 'react';
-import styles from './ComponentB.module.scss';
-import Button from '../button/Button';
 import clsx from 'clsx';
+import { FC, FormEvent, useState } from 'react';
 import emailRegex from '../../utils/emailRegex';
+import Button from '../button/Button';
+import styles from './ComponentB.module.scss';
 
 const ComponentB: FC = () => {
   const [name, setName] = useState('');

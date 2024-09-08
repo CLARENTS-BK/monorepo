@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import axios from 'axios';
 import ComponentA from './ComponentA';
 
@@ -13,11 +13,11 @@ describe('ComponentA', () => {
 
   test('should display loading message initially', async () => {
     mockedAxios.get.mockImplementation(() => new Promise(() => {}));
-  
+
     await act(async () => {
       render(<ComponentA />);
     });
-  
+
     expect(screen.getByText('Loading...')).toBeInTheDocument();
   });
 
@@ -101,11 +101,11 @@ describe('ComponentA', () => {
 
   test('should display error message when fetch fails', async () => {
     mockedAxios.get.mockImplementation(() => Promise.reject(new Error('Fetch failed')));
-  
+
     await act(async () => {
       render(<ComponentA />);
     });
-  
+
     await waitFor(() => {
       expect(screen.getByText('Error fetching Pokemons. Please try again later.')).toBeInTheDocument();
     });

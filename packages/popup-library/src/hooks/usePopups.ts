@@ -1,6 +1,6 @@
 import { usePopupStore } from '../components/popupProvider/PopupsProvider';
 
-export const usePopups = () => {
+const usePopups = () => {
   const { addPopup, closePopup, closeAll, movePopup } = usePopupStore();
 
   return {
@@ -10,3 +10,5 @@ export const usePopups = () => {
     movePopup,
   };
 };
+
+export { usePopups };

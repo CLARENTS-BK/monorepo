@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { render, fireEvent, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import Popup, { PopupProps } from './Popup';
 
 describe('Popup', () => {
@@ -33,10 +33,15 @@ describe('Popup', () => {
 
   test('should adjust position on window resize', () => {
     const { container } = render(
-      <Popup id={1} title="Test" content="Test content" zIndex={1} />
+      <Popup
+        id={1}
+        title="Test"
+        content="Test content"
+        zIndex={1}
+      />
     );
     const popup = container.firstChild as HTMLElement;
-  
+
     Object.defineProperty(popup, 'style', {
       value: {
         left: '',
@@ -53,7 +58,7 @@ describe('Popup', () => {
         },
       },
     });
-  
+
     popup.getBoundingClientRect = () => ({
       width: 100,
       height: 100,
@@ -65,32 +70,38 @@ describe('Popup', () => {
       y: 1000,
       toJSON: () => {},
     });
-  
+
     Object.defineProperty(window, 'innerWidth', { writable: true, configurable: true, value: 500 });
     Object.defineProperty(window, 'innerHeight', { writable: true, configurable: true, value: 500 });
-  
+
     fireEvent(window, new Event('resize'));
-  
+
     popup.style.left = '400px';
     popup.style.top = '400px';
-  
+
     expect(popup.style.getPropertyValue('left')).toBe('400px');
     expect(popup.style.getPropertyValue('top')).toBe('400px');
   });
-  
-  test('should call onDrag when dragged', () => {
+
+  test('should call onDrag when dragged', async () => {
     const handleDrag = jest.fn();
     const { container } = render(
-      <Popup id={1} title="Test" content="Test content" zIndex={1} onDrag={handleDrag} />
+      <Popup
+        id={1}
+        title="Test"
+        content="Test content"
+        zIndex={1}
+        onDrag={handleDrag}
+      />
     );
     const draggable = container.firstChild as HTMLElement;
-  
+
     fireEvent.mouseDown(draggable, { clientX: 0, clientY: 0 });
     fireEvent.mouseMove(draggable, { clientX: 100, clientY: 100 });
     fireEvent.mouseUp(draggable);
-  
-    return new Promise(resolve => setTimeout(resolve, 0)).then(() => {
-      expect(handleDrag).toHaveBeenCalledWith(1, 100, 100);
-    });
+
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    expect(handleDrag).toHaveBeenCalledWith(1, 100, 100);
   });
 });

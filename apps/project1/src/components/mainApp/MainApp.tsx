@@ -1,7 +1,7 @@
 import { usePopups } from 'popup-library';
-import { FC, Suspense, lazy } from 'react';
-import styles from './MainApp.module.scss';
+import { FC, lazy, Suspense } from 'react';
 import Button from '../button/Button';
+import styles from './MainApp.module.scss';
 
 const ComponentA = lazy(() => import('../componentA/ComponentA'));
 const ComponentB = lazy(() => import('../componentB/ComponentB'));
