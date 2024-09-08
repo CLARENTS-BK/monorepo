@@ -27,7 +27,3 @@ Las dependencias de cada subproyecto se gestionan de forma independiente y se es
 ## Motor
 
 Este proyecto requiere Node.js versión 14.0.0 o superior.
-
-## Licencia
-
-Este proyecto está licenciado bajo los términos de la licencia MIT.
