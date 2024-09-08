@@ -10,11 +10,12 @@
     "dev": "npm run dev --workspace=apps/project1",
     "build": "npm run build --workspaces",
     "test": "npm test --workspaces",
-    "lint": "npm run lint:styles && lint:prettier:scss",
+    "lint": "npm run lint:styles && npm run lint:prettier:scss",
     "lint:prettier:scss": "prettier --check \"apps/**/src/**/*.scss\" \"packages/**/src/**/*.scss\"",
     "lint:styles": "stylelint '**/*.{css,scss}'",
     "lint:styles:fix": "stylelint '**/*.{css,scss}' --fix",
-    "format": "prettier --write \"apps/**/src/**/*.{ts,tsx,css,scss}\" \"packages/**/src/**/*.{ts,tsx,css,scss}\" --config ./.prettierrc.json"
+    "format": "prettier --write \"apps/**/src/**/*.{ts,tsx,css,scss}\" \"packages/**/src/**/*.{ts,tsx,css,scss}\" --config ./.prettierrc.json",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@babel/core": "7.24.7",
@@ -22,7 +23,7 @@
     "@babel/plugin-transform-runtime": "7.24.0",
     "@babel/preset-env": "7.24.7",
     "@babel/preset-typescript": "7.24.7",
-    "@commitlint/cli": "19.4.1",
+    "@commitlint/cli": "^19.4.1",
     "@commitlint/config-conventional": "19.4.1",
     "@eslint/js": "^9.10.0",
     "@testing-library/react": "16.0.1",

@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
 import axios from 'axios';
 import ComponentA from './ComponentA';
 
@@ -11,9 +11,13 @@ describe('ComponentA', () => {
     jest.clearAllMocks();
   });
 
-  test('should display loading message initially', () => {
-    render(<ComponentA />);
-
+  test('should display loading message initially', async () => {
+    mockedAxios.get.mockImplementation(() => new Promise(() => {}));
+  
+    await act(async () => {
+      render(<ComponentA />);
+    });
+  
     expect(screen.getByText('Loading...')).toBeInTheDocument();
   });
 
@@ -39,7 +43,9 @@ describe('ComponentA', () => {
       return Promise.resolve({ data: pokemons.find((p) => p.name === name) });
     });
 
-    render(<ComponentA />);
+    await act(async () => {
+      render(<ComponentA />);
+    });
 
     await waitFor(() => {
       expect(screen.getByText('BULBASAUR')).toBeInTheDocument();
@@ -69,7 +75,9 @@ describe('ComponentA', () => {
       return Promise.resolve({ data: pokemons.find((p) => p.name === name) });
     });
 
-    render(<ComponentA />);
+    await act(async () => {
+      render(<ComponentA />);
+    });
 
     await waitFor(() => {
       expect(screen.getByText('BULBASAUR')).toBeInTheDocument();
@@ -94,7 +102,9 @@ describe('ComponentA', () => {
   test('should display error message when fetch fails', async () => {
     mockedAxios.get.mockImplementation(() => Promise.reject(new Error('Fetch failed')));
   
-    render(<ComponentA />);
+    await act(async () => {
+      render(<ComponentA />);
+    });
   
     await waitFor(() => {
       expect(screen.getByText('Error fetching Pokemons. Please try again later.')).toBeInTheDocument();

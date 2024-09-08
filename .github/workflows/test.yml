@@ -19,10 +19,13 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "16.x"
+          node-version: '16.x'
 
       - name: Install dependencies
         run: npm ci -f
+
+      - name: Run lint
+        run: npm run lint
 
       - name: Unit tests
         run: npm test
