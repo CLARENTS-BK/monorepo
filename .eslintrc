@@ -1,0 +1,146 @@
+{
+  "extends": [
+    "airbnb-base",
+    "airbnb-typescript/base",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.eslint.json",
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": ["jsx-a11y", "prettier", "filename-rules"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true,
+    "es2021": true
+  },
+  "ignorePatterns": [
+    "node_modules/",
+    "dist/",
+    "build/",
+    "coverage/",
+    "commitlint.config.cjs",
+    "stylelint.config.cjs",
+    "jest.config.cjs"
+  ],
+  "overrides": [
+    {
+      "extends": ["plugin:@typescript-eslint/disable-type-checked"],
+      "files": ["./**/*.js"]
+    }
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "@typescript-eslint/comma-dangle": "off",
+    "@typescript-eslint/indent": "off",
+    "@typescript-eslint/no-unused-expressions": [
+      "error",
+      {
+        "allowShortCircuit": true,
+        "allowTernary": true,
+        "allowTaggedTemplates": false
+      }
+    ],
+    "filename-rules/match": [
+      "error",
+      {
+        ".ts": "/^[a-zA-Z]+((\\d)|([A-Z0-9][a-z0-9]+))*([A-Z])?(?:\\..*)?$/",
+        ".tsx": "/^index|((use|create|with)?[A-Z]([A-Z0-9]*[a-z]+)+[A-Z0-9]*(?:\\..*)?)$/"
+      }
+    ],
+    "function-paren-newline": "off",
+    "import/exports-last": "error",
+    "import/extensions": [
+      "error",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never",
+        "svg": "always",
+        "png": "always",
+        "jpg": "always",
+        "jpeg": "always",
+        "json": "always",
+        "stories": "always"
+      }
+    ],
+    "import/group-exports": "error",
+    "import/no-anonymous-default-export": "error",
+    "import/no-extraneous-dependencies": "off",
+    "jsx-a11y/alt-text": "warn",
+    "jsx-a11y/anchor-has-content": "warn",
+    "jsx-a11y/anchor-is-valid": [
+      "warn",
+      {
+        "aspects": ["noHref", "invalidHref"]
+      }
+    ],
+    "jsx-a11y/aria-activedescendant-has-tabindex": "warn",
+    "jsx-a11y/aria-props": "warn",
+    "jsx-a11y/aria-proptypes": "warn",
+    "jsx-a11y/aria-role": ["warn", { "ignoreNonDOM": true }],
+    "jsx-a11y/aria-unsupported-elements": "warn",
+    "jsx-a11y/heading-has-content": "warn",
+    "jsx-a11y/iframe-has-title": "warn",
+    "jsx-a11y/img-redundant-alt": "warn",
+    "jsx-a11y/no-access-key": "warn",
+    "jsx-a11y/no-distracting-elements": "warn",
+    "jsx-a11y/no-redundant-roles": "warn",
+    "jsx-a11y/role-has-required-aria-props": "warn",
+    "jsx-a11y/role-supports-aria-props": "warn",
+    "jsx-a11y/scope": "warn",
+    "prettier/prettier": "error",
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "react-hooks/exhaustive-deps": "error",
+    "comma-dangle": "off",
+    "consistent-this": ["error", "that"],
+    "curly": ["error", "all"],
+    "implicit-arrow-linebreak": "off",
+    "eqeqeq": ["error", "always"],
+    "no-confusing-arrow": "off",
+    "no-console": "error",
+    "no-plusplus": "off",
+    "no-promise-executor-return": "off",
+    "no-unused-expressions": [
+      "error",
+      {
+        "allowShortCircuit": true,
+        "allowTernary": true,
+        "allowTaggedTemplates": false
+      }
+    ],
+    "max-len": [
+      "error",
+      {
+        "code": 120,
+        "ignoreUrls": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreRegExpLiterals": true
+      }
+    ],
+    "object-curly-newline": "off",
+    "operator-linebreak": "off",
+    "semi": ["error", "always"],
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true
+      }
+    ]
+  }
+}

@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { AnchorHTMLAttributes, ButtonHTMLAttributes, forwardRef, ReactNode, Ref } from 'react';
+import { ButtonHTMLAttributes, forwardRef, ReactNode, Ref } from 'react';
 
 import styles from './Button.module.scss';
 

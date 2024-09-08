@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.json",
+  "exclude": [],
+  "include": ["apps/project1/src/**/*", "packages/popup-library/src/**/*"]
+}
