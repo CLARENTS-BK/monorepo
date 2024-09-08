@@ -1,0 +1,74 @@
+@use '../../styles/project1';
+
+.app {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: project1.$space-xl;
+  background-color: transparent;
+  gap: project1.$space-m;
+}
+
+.todoList {
+  padding-left: project1.$space-l;
+  margin: 0;
+
+  li {
+    @extend %cry-typography-body-l;
+
+    color: project1.$neutral-black;
+    padding: project1.$space-xs;
+    border-radius: project1.$radius-m;
+    transition:
+      background-color 0.3s,
+      transform 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      color: project1.$success-800;
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+}
+
+.columns {
+  display: flex;
+  width: 100%;
+}
+
+.buttonsColumn {
+  flex: 0 0 30%;
+  gap: project1.$space-m;
+  margin-right: project1.$space-l;
+  display: flex;
+  flex-direction: column;
+}
+
+.todoListColumn {
+  flex: 1;
+  margin-left: project1.$space-xl;
+}
+
+.todos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: project1.$gray-500;
+}
+
+.text {
+  margin-right: project1.$space-m;
+}
+
+.buttonsTodo {
+  display: flex;
+  gap: project1.$space-m;
+}

@@ -28,6 +28,46 @@ Las dependencias de cada subproyecto se gestionan de forma independiente y se es
 
 Este proyecto requiere Node.js versión 14.0.0 o superior.
 
-## Licencia
+## Despliegue
 
-Este proyecto está licenciado bajo los términos de la licencia MIT.
+Este proyecto se despliega en Netlify. La URL del sitio es: https://main--monorepo-monitore-inteligente.netlify.app/
+
+## Pruebas
+
+Las pruebas se ejecutan con GitHub Actions. Aquí está la configuración de la acción:
+
+```yaml
+name: Run unit test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+
+      - name: Install dependencies
+        run: npm ci -f
+
+      - name: Run lint
+        run: npm run lint
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Build
+        run: npm run build

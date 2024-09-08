@@ -1,0 +1,15 @@
+@use '../../styles/project1';
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: project1.$space-l;
+  gap: project1.$space-xl;
+}
+
+.title {
+  @extend %cry-typography-heading-bold-l;
+
+  padding: project1.$space-s;
+  text-align: center;
+}

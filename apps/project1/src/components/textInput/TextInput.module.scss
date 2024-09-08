@@ -1,0 +1,255 @@
+@use '../../styles/project1';
+
+.root {
+  /* Positioning */
+  position: relative;
+
+  * {
+    /* Box-model */
+    box-sizing: border-box;
+  }
+}
+
+.errorMessage {
+  @extend %cry-typography-body-xs;
+
+  color: project1.$error-700;
+  margin: project1.$space-xxs 0 0;
+}
+
+%base {
+  border: 0.0625rem solid project1.$gray-500;
+
+  &:hover {
+    background-color: project1.$info-50;
+    color: project1.$gray-700;
+    border: 1px solid project1.$gray-700;
+
+    &::placeholder {
+      /* Typography */
+      color: project1.$gray-900;
+    }
+  }
+
+  &::placeholder {
+    /* Typography */
+    color: project1.$gray-700;
+  }
+
+  &:focus,
+  &:active {
+    /* Visual */
+    border-color: project1.$primary-500;
+
+    &::placeholder {
+      /* Typography */
+      color: project1.$gray-900;
+    }
+
+    & + .icon {
+      /* Typography */
+      color: project1.$gray-900;
+    }
+  }
+
+  &:not(:placeholder-shown) + .icon {
+    /* Typography */
+    color: project1.$gray-500;
+  }
+}
+
+.rootM {
+  /* Box-model */
+  @extend%base;
+
+  margin: 0;
+  padding: 0.25rem 0.5rem;
+  width: 100%;
+
+  /* Typography */
+  color: project1.$gray-900;
+
+  @extend %cry-typography-body-m;
+
+  /* Visual */
+  background-color: project1.$neutral-white;
+  border-color: project1.$gray-300;
+  border-radius: project1.$radius-m;
+  box-shadow: none;
+  outline: none;
+}
+
+.rootS {
+  /* Box-model */
+  @extend%base;
+
+  margin: 0;
+  padding: project1.$space-xxxs project1.$space-xs;
+  width: 100%;
+
+  /* Typography */
+  color: project1.$gray-900;
+
+  @extend %cry-typography-body-s;
+
+  /* Visual */
+  background-color: project1.$neutral-white;
+  border-color: project1.$gray-300;
+  border-radius: project1.$radius-s;
+  box-shadow: none;
+  outline: none;
+}
+
+.rootL {
+  /* Box-model */
+  @extend%base;
+
+  margin: 0;
+  padding: project1.$space-xs;
+  width: 100%;
+
+  /* Typography */
+  color: project1.$gray-900;
+
+  @extend %cry-typography-body-l;
+
+  /* Visual */
+  background-color: project1.$neutral-white;
+  border-color: project1.$gray-300;
+  border-radius: project1.$radius-xl;
+  box-shadow: none;
+  outline: none;
+}
+
+.isNegative {
+  /* Visual */
+  border-color: project1.$error-500;
+
+  &::placeholder {
+    /* Typography */
+    color: project1.$error-700;
+  }
+}
+
+$input-icon-size: 1.5rem;
+$input-icon-gutter: 0.125rem;
+$input-icon-color: project1.$gray-400;
+$input-padding-icon: calc(#{$input-icon-size} + #{$input-icon-gutter * 2});
+
+.iconM {
+  /* Positioning */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  /* Box-model */
+  display: flex;
+  align-items: center;
+  padding: 0.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
+
+  /* Typography */
+  color: $input-icon-color;
+
+  svg {
+    /* Box-model */
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.disabled {
+  pointer-events: none;
+  color: project1.$gray-500;
+
+  input {
+    background-color: project1.$gray-200;
+    border-color: project1.$gray-300;
+
+    &::placeholder {
+      /* Typography */
+      color: project1.$gray-500;
+      background-color: project1.$gray-200;
+    }
+  }
+}
+
+.iconS {
+  /* Positioning */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  /* Box-model */
+  display: flex;
+  align-items: center;
+  padding: 0.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
+
+  /* Typography */
+  color: $input-icon-color;
+
+  svg {
+    /* Box-model */
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.iconL {
+  /* Positioning */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  /* Box-model */
+  display: flex;
+  align-items: center;
+  padding: 0.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
+
+  /* Typography */
+  color: $input-icon-color;
+
+  svg {
+    /* Box-model */
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.rightIcon {
+  /* Positioning */
+  right: $input-icon-gutter;
+}
+
+.leftIcon {
+  /* Positioning */
+  left: $input-icon-gutter;
+}
+
+.hasLeftIcon {
+  /* Box-model */
+  padding-left: $input-padding-icon;
+}
+
+.hasRightIcon {
+  /* Box-model */
+  padding-right: $input-padding-icon;
+}
+
+.error {
+  /* Typography */
+  color: project1.$error-500;
+
+  /* Visual */
+  border-color: project1.$error-500;
+
+  &::placeholder {
+    /* Typography */
+    color: project1.$error-500;
+  }
+}
