@@ -35,7 +35,7 @@ const usePopupStore = create<PopupStore>((set) => ({
     set((state) => ({
       popups: state.popups.map((popup) =>
         popup.id === id
-          ? { ...popup, zIndex: Math.max(...state.popups.map((p) => p.zIndex ?? 0)) + 1 }
+          ? { ...popup, zIndex: Math.max(...state.popups.map((p) => p.zIndex)) + 1 }
           : popup
       ),
     })),
@@ -81,7 +81,7 @@ const PopupsProvider: FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <>
       {children}
-      <div ref={containerRef} className={styles.popupContainer}>
+      <div ref={containerRef} className={styles.container}>
         {popups.map((popup) => (
           <Popup
             key={popup.id}

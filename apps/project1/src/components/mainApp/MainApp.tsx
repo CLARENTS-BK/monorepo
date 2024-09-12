@@ -35,7 +35,7 @@ const MainApp: FC = () => {
                 <ComponentB />
               </Suspense>
             ),
-            defaultPosition: { left: 200, top: 200, width: 500 },
+            defaultPosition: { left: 400, top: 400, width: 500 },
           })
         }
       />

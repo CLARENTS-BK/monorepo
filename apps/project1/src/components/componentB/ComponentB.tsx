@@ -4,12 +4,17 @@ import emailRegex from '../../utils/emailRegex';
 import Button from '../button/Button';
 import styles from './ComponentB.module.scss';
 
+interface Errors {
+  name: string;
+  email: string;
+}
+
 const ComponentB: FC = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [errors, setErrors] = useState({ name: '', email: '' });
-  const [loading, setLoading] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [name, setName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [errors, setErrors] = useState<Errors>({ name: '', email: '' });
+  const [loading, setLoading] = useState<boolean>(false);
+  const [submitted, setSubmitted] = useState<boolean>(false);
 
   const validateForm = () => {
     let valid = true;

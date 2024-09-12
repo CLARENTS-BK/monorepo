@@ -1,6 +1,6 @@
 @use '../../styles/popup-styles';
 
-.popup {
+.container {
   position: absolute;
   background: popup-styles.$neutral-white;
   border-radius: popup-styles.$radius-m;
